@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты | Tech Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        body { background: linear-gradient(135deg, #2b2d42 0%, #8d99ae 100%); min-height: 100vh; display: flex; align-items: center; font-family: 'Segoe UI', sans-serif; }
+        .contact-card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .info-label { color: #8d99ae; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .info-value { color: #2b2d42; font-size: 1.2rem; font-weight: 600; margin-bottom: 20px; }
+        .social-link { transition: 0.3s; text-decoration: none; display: block; }
+        .social-link:hover { transform: translateX(10px); color: #ef233c !important; }
+        .group-footer { background: #edf2f4; padding: 15px; text-align: center; font-weight: bold; color: #2b2d42; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="contact-card animate__animated animate__jackInTheBox">
+                    <div class="p-5">
+                        <h2 class="fw-bold mb-4 text-center">Информация об авторе</h2>
+                        
+                        <div class="info-label">Имя</div>
+                        <div class="info-value">Советбеков Ерасыл</div>
+
+                        <div class="info-label">Телефон</div>
+                        <div class="info-value">+7-707-483-35-03</div>
+
+                        <div class="info-label">Инстаграм</div>
+                        <a href="https://instagram.com/sovetbekov_e" class="info-value social-link text-dark">@sovetbekov_e</a>
+
+                        <div class="info-label">Телеграм</div>
+                        <a href="https://t.me/SEAJUST" class="info-value social-link text-dark">@SEAJUST</a>
+
+                        <div class="text-center mt-4">
+                            <a href="/" class="btn btn-dark rounded-pill px-5">На главную</a>
+                        </div>
+                    </div>
+                    <div class="group-footer">
+                        Группа: МПО 11-23-1
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
