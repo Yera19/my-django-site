@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-yhay%z4gga7c2(#3adx6_80_dup1hx+mf9+632x@i4xp!#_ddl
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yera-techshop.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -116,3 +116,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
