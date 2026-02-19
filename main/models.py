@@ -1,10 +1,22 @@
-﻿from django.db import models
+from django.db import models
+
+# 1. Добавляем модель Категории (ее у тебя не было)
+class Category(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Название категории")
+
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название товара")
     price = models.IntegerField(verbose_name="Цена (₸)")
     image_url = models.URLField(verbose_name="Ссылка на фото")
-    category = models.CharField(max_length=100, verbose_name="Категория", default="Смартфоны")
+    # 2. МЕНЯЕМ ЭТУ СТРОКУ: теперь категория — это связь с моделью Category
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория", null=True, blank=True)
 
     class Meta:
         verbose_name = "Товар"
@@ -29,3 +41,4 @@ class OrderRequest(models.Model):
 
     def __str__(self):
         return f"{self.client_name} - {self.method}"
+        
