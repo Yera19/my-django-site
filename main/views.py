@@ -10,26 +10,21 @@ def index(request):
         products = Product.objects.filter(category=category_name)
     else:
         products = Product.objects.all()
-    
     categories = ["Смартфоны", "Ноутбуки", "Наушники"]
-    return render(request, 'main/index.html', {
-        'products': products, 
-        'categories': categories
-    })
-
-def checkout(request):
-    # Открывает твой файл checkout.html
-    return render(request, 'main/checkout.html')
+    return render(request, 'main/index.html', {'products': products, 'categories': categories})
 
 def about(request):
-    # Открывает твой файл about.html (контакты)
+    # Здесь должен открываться твой файл с информацией об авторе
     return render(request, 'main/about.html')
+
+def checkout(request):
+    # Здесь должен открываться твой файл оформления заказа
+    return render(request, 'main/checkout.html')
 
 @csrf_exempt
 def create_order(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        # Создаем запись в базе данных
         OrderRequest.objects.create(
             client_name=data.get('name'),
             phone=data.get('phone', 'Не указан'),
