@@ -8,19 +8,19 @@ def index(request):
     else:
         products = Product.objects.all()
     
-    # Список категорий для кнопок
     categories = ["Смартфоны", "Ноутбуки", "Наушники"]
-    
     return render(request, 'main/index.html', {
-        'products': products,
+        'products': products, 
         'categories': categories
     })
 
-# Функция для страницы оформления (чтобы не было ошибки)
 def checkout(request):
     return render(request, 'main/index.html')
 
-# Функция для страницы "О нас" / Контакты (её просит твой urls.py)
 def about(request):
+    return render(request, 'main/index.html')
+
+def create_order(request):
+    # Эта функция нужна, чтобы работала отправка заказа
     return render(request, 'main/index.html')
     
