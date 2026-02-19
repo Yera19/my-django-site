@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,10 @@
         .product-card { border-radius: 20px; border: none; transition: 0.3s; background: white; height: 100%; }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         
+        /* Кнопки категорий */
+        .category-btn { transition: 0.2s; border-width: 2px; }
+        .category-btn.active { background-color: #2b2d42; color: white; border-color: #2b2d42; }
+
         /* Плавающая кнопка корзины */
         .btn-cart-float { position: fixed; bottom: 30px; right: 30px; width: 70px; height: 70px; border-radius: 50%; background: #ef233c; color: white; border: none; font-size: 28px; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
 
@@ -34,6 +38,21 @@
         </div>
     </nav>
 
+    <div class="container mt-4">
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <a href="/" class="btn btn-outline-dark rounded-pill px-4 category-btn {% if not request.GET.category %}active{% endif %}">
+                Все товары
+            </a>
+            
+            {% for cat in categories %}
+            <a href="?category={{ cat.id }}" 
+               class="btn btn-outline-dark rounded-pill px-4 category-btn {% if request.GET.category == cat.id|stringformat:'s' %}active{% endif %}">
+                {{ cat.name }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
     <div class="container mt-5 pb-5">
         <div class="row">
             {% for p in products %}
@@ -47,6 +66,11 @@
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <div class="col-12 text-center mt-5">
+                <h3>В этой категории пока нет товаров 📦</h3>
+                <a href="/" class="btn btn-primary mt-3">Вернуться к покупкам</a>
+            </div>
             {% endfor %}
         </div>
     </div>
@@ -58,8 +82,7 @@
             <h5 class="m-0 fw-bold">Ваша корзина</h5>
             <button class="btn-close btn-close-white" onclick="toggleCart()"></button>
         </div>
-        <div class="cart-items" id="cart-content">
-            </div>
+        <div class="cart-items" id="cart-content"></div>
         <div class="p-4 border-top">
             <div class="d-flex justify-content-between mb-3">
                 <span class="h5 fw-bold">Итого:</span>
