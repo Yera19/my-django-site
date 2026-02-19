@@ -18,3 +18,8 @@ def index(request):
         'categories': categories
     })
     
+
+def checkout(request):
+    # Пока просто показываем страницу (можешь потом создать checkout.html)
+    # Или, если страницы нет, можно временно перенаправлять на главную
+    return render(request, 'main/index.html') 
