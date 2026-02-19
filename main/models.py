@@ -1,20 +1,11 @@
-from django.db import models 
-
-class Category(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Название категории")
-
-    class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
-
-    def __str__(self):
-        return self.name
+from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название товара")
     price = models.IntegerField(verbose_name="Цена (₸)")
     image_url = models.URLField(verbose_name="Ссылка на фото")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория", null=True, blank=True)
+    # Возвращаем обычное текстовое поле, как и было
+    category = models.CharField(max_length=100, verbose_name="Категория", default="Смартфоны")
 
     class Meta:
         verbose_name = "Товар"
