@@ -4,7 +4,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название товара")
     price = models.IntegerField(verbose_name="Цена (₸)")
     image_url = models.URLField(verbose_name="Ссылка на фото")
-    # Возвращаем обычное текстовое поле, как и было
+    # Обычное текстовое поле для категорий
     category = models.CharField(max_length=100, verbose_name="Категория", default="Смартфоны")
 
     class Meta:
