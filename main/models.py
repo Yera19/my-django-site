@@ -1,6 +1,5 @@
-from django.db import models
+from django.db import models 
 
-# 1. Добавляем модель Категории (ее у тебя не было)
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название категории")
 
@@ -15,7 +14,6 @@ class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name="Название товара")
     price = models.IntegerField(verbose_name="Цена (₸)")
     image_url = models.URLField(verbose_name="Ссылка на фото")
-    # 2. МЕНЯЕМ ЭТУ СТРОКУ: теперь категория — это связь с моделью Category
     category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Категория", null=True, blank=True)
 
     class Meta:
